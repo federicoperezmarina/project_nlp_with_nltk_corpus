@@ -8,6 +8,7 @@ This repository is about natural language toolkit focused in the nltk package co
 * [Corpus available](#corpus-available)
 * [Corpus stopwords](#corpus-stopwords)
 * [Corpus stopwords removing](#corpus-stopwords-removing)
+* [Corpus stopwords omit](#corpus-stopwords-omit)
 
 
 ## Docker image
@@ -131,3 +132,36 @@ While the congress of the Republic endlessly debates this alarming chain of even
 After removing stop words from the said text:
 ['Episode', '1:', 'The', 'Phantom', 'Menace', '–', 'one', 'Star', 'Wars', 'becomes', 'lesson', 'trade', 'disputes', 'economic', 'sanctions.', 'Turmoil', 'engulfed', 'Galactic', 'Republic.', 'The', 'taxation', 'trade', 'routes', 'outlying', 'star', 'systems', 'dispute.', 'Hoping', 'resolve', 'matter', 'blockade', 'deadly', 'battleships,', 'greedy', 'Trade', 'Federation', 'stopped', 'shipping', 'small', 'planet', 'Naboo.', 'While', 'congress', 'Republic', 'endlessly', 'debates', 'alarming', 'chain', 'events,', 'Supreme', 'Chancellor', 'secretly', 'dispatched', 'two', 'Jedi', 'Knights,', 'guardians', 'peace', 'justice', 'galaxy,', 'settle', 'conflict....']
 ```
+
+## Corpus stopwords omit
+In this section we are going omit some stopwords from the original list
+
+```python
+from nltk.corpus import stopwords
+
+result = set(stopwords.words('english'))
+
+print("List of stopwords in English:")
+print(result)
+
+stop_words = set(stopwords.words('english')) - set(['again', 'once', 'from'])
+
+print("\nOmit - 'again', 'once' and 'from':")
+print (stop_words)
+```
+
+How to execute:
+```sh
+cd /tmp
+python3 nltk_corpus_stopwords_omit.py 
+```
+
+Output:
+```sh
+List of stopwords in English:
+{'because', 'what', 'between', 'nor', 'shouldn', 'in', 'has', "that'll", 'after', 'both', "won't", 'through', 've', 'wasn', 'doing', 'had', 'won', 'those', 'about', 'do', 'have', 'don', 'him', 'they', 'up', "didn't", 'where', 'does', 'all', "you'll", 'over', 'before', 'yourselves', 'you', 'there', 'each', 'themselves', 'only', 'an', 'any', 'such', 'hasn', 'itself', 'so', 'off', 'while', "mightn't", 'herself', 'are', 'if', 'once', 'how', 'out', 'under', 'your', 'too', 'isn', 'some', 'theirs', 'mightn', 'few', 'be', 'but', 'more', 'a', 'the', "isn't", 'own', 'that', 'mustn', "hasn't", 'did', 'again', "you've", "couldn't", 'most', 'weren', 'we', 'am', 'ourselves', 'were', "should've", 'which', "wasn't", 'whom', 'aren', "you're", 'who', 'ma', 'not', "shouldn't", 'this', 'why', 'into', 'd', 'at', 'other', 'ain', 'my', 't', 'wouldn', 'when', 'now', 'yourself', 'from', 'them', 'haven', 'been', 'its', 'against', "shan't", 'didn', 'll', 'no', 'on', 'until', 'to', 'hadn', 'and', 'our', 'should', 'of', 'by', 'having', 'further', 'myself', "she's", 'is', 'here', 'y', 'm', 'then', 'will', "mustn't", "wouldn't", 'his', 'very', "don't", 'can', 'or', 'these', 'shan', 'me', 'yours', 'she', 'i', 'couldn', "weren't", "you'd", 'down', 'her', 'below', "hadn't", 'their', "it's", 'o', 'than', 'he', 'same', 's', "doesn't", 'during', "haven't", 'doesn', 're', 'being', 'just', 'it', 'for', 'with', 'above', "needn't", 'as', 'needn', 'hers', 'was', "aren't", 'ours', 'himself'}
+
+Omit - 'again', 'once' and 'from':
+{'because', 'what', 'between', 'nor', 'shouldn', 'in', 'has', "that'll", 'after', 'both', "won't", 'through', 've', 'wasn', 'doing', 'had', 'won', 'those', 'about', 'do', 'have', 'don', 'him', 'they', 'up', "didn't", 'where', 'does', 'all', "you'll", 'over', 'before', 'yourselves', 'you', 'there', 'each', 'themselves', 'only', 'an', 'any', 'such', 'hasn', 'itself', 'so', 'off', 'while', "mightn't", 'herself', 'are', 'if', 'how', 'out', 'under', 'your', 'too', 'isn', 'some', 'theirs', 'mightn', 'few', 'be', 'but', 'more', 'a', 'the', "isn't", 'own', 'that', 'mustn', "hasn't", 'did', "you've", "couldn't", 'most', 'weren', 'we', 'am', 'ourselves', 'were', "should've", 'which', "wasn't", 'whom', 'aren', "you're", 'who', 'ma', 'not', "shouldn't", 'this', 'why', 'into', 'd', 'at', 'other', 'ain', 'my', 't', 'wouldn', 'when', 'now', 'yourself', 'them', 'haven', 'been', 'its', 'against', "shan't", 'didn', 'll', 'no', 'on', 'until', 'to', 'hadn', 'and', 'our', 'should', 'of', 'by', 'having', 'further', 'myself', "she's", 'is', 'here', 'y', 'm', 'then', 'will', "mustn't", "wouldn't", 'his', 'very', "don't", 'can', 'or', 'these', 'shan', 'me', 'yours', 'she', 'i', 'couldn', "weren't", "you'd", 'down', 'her', 'below', "hadn't", 'their', "it's", 'o', 'than', 'he', 'same', 's', "doesn't", 'during', "haven't", 'doesn', 're', 'being', 'just', 'it', 'for', 'with', 'above', "needn't", 'as', 'needn', 'hers', 'was', "aren't", 'ours', 'himself'}
+```
+
