@@ -7,6 +7,7 @@ This repository is about natural language toolkit focused in the nltk package co
 * [Docker run and execute](#docker-run-and-execute)
 * [Corpus available](#corpus-available)
 * [Corpus stopwords](#corpus-stopwords)
+* [Corpus stopwords removing](#corpus-stopwords-removing)
 
 
 ## Docker image
@@ -89,3 +90,44 @@ English stopwords
 ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', "that'll", 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', "don't", 'should', "should've", 'now', 'd', 'll', 'm', 'o', 're', 've', 'y', 'ain', 'aren', "aren't", 'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn', "hadn't", 'hasn', "hasn't", 'haven', "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn', "mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't"]
 ```
 
+
+## Corpus stopwords removing
+In this section we are going to introduce a text and remove all the stopwords.
+
+```python
+from nltk.corpus import stopwords
+
+stoplist = stopwords.words('english')
+
+text = '''Episode 1: The Phantom Menace – the one in which Star Wars becomes a lesson in trade disputes and economic sanctions.
+Turmoil has engulfed the Galactic Republic. The taxation of trade routes to outlying star systems is in dispute.
+Hoping to resolve the matter with a blockade of deadly battleships, the greedy Trade Federation has stopped all shipping to the small planet of Naboo.
+While the congress of the Republic endlessly debates this alarming chain of events, the Supreme Chancellor has secretly dispatched two Jedi Knights, the guardians of peace and justice in the galaxy, to settle the conflict....
+'''
+
+print("\nOriginal string:")
+print(text)
+
+clean_word_list = [word for word in text.split() if word not in stoplist]
+print("\nAfter removing stop words from the said text:")
+print(clean_word_list)
+```
+
+How to execute:
+```sh
+cd /tmp
+python3 nltk_corpus_stopwords_remove.py 
+```
+
+Output:
+```sh
+Original string:
+Episode 1: The Phantom Menace – the one in which Star Wars becomes a lesson in trade disputes and economic sanctions.
+Turmoil has engulfed the Galactic Republic. The taxation of trade routes to outlying star systems is in dispute.
+Hoping to resolve the matter with a blockade of deadly battleships, the greedy Trade Federation has stopped all shipping to the small planet of Naboo.
+While the congress of the Republic endlessly debates this alarming chain of events, the Supreme Chancellor has secretly dispatched two Jedi Knights, the guardians of peace and justice in the galaxy, to settle the conflict....
+
+
+After removing stop words from the said text:
+['Episode', '1:', 'The', 'Phantom', 'Menace', '–', 'one', 'Star', 'Wars', 'becomes', 'lesson', 'trade', 'disputes', 'economic', 'sanctions.', 'Turmoil', 'engulfed', 'Galactic', 'Republic.', 'The', 'taxation', 'trade', 'routes', 'outlying', 'star', 'systems', 'dispute.', 'Hoping', 'resolve', 'matter', 'blockade', 'deadly', 'battleships,', 'greedy', 'Trade', 'Federation', 'stopped', 'shipping', 'small', 'planet', 'Naboo.', 'While', 'congress', 'Republic', 'endlessly', 'debates', 'alarming', 'chain', 'events,', 'Supreme', 'Chancellor', 'secretly', 'dispatched', 'two', 'Jedi', 'Knights,', 'guardians', 'peace', 'justice', 'galaxy,', 'settle', 'conflict....']
+```
