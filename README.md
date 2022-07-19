@@ -5,8 +5,8 @@ This repository is about natural language toolkit focused in the nltk package co
 * [Docker image](#docker-image)
 * [Docker build](#docker-build)
 * [Docker run and execute](#docker-run-and-execute)
-* [Corpus available](#corpus_available)
-* [Corpus stopwords](#corpus_stopwords)
+* [Corpus available](#corpus-available)
+* [Corpus stopwords](#corpus-stopwords)
 
 
 ## Docker image
