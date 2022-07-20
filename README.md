@@ -10,7 +10,7 @@ This repository is about natural language toolkit focused in the nltk package co
 * [Corpus stopwords removing](#corpus-stopwords-removing)
 * [Corpus stopwords omit](#corpus-stopwords-omit)
 * [Corpus wordnet](#corpus-wordnet)
-* [Corpus wordnet synonyms and antonyms](#corpus-wordnet-synonyms-and_antonyms)
+* [Corpus wordnet synonyms and antonyms](#corpus-wordnet-synonyms-and-antonyms)
 
 ## Docker image
 First of all we are going to use docker to prepare the environment.
