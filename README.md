@@ -10,7 +10,7 @@ This repository is about natural language toolkit focused in the nltk package co
 * [Corpus stopwords removing](#corpus-stopwords-removing)
 * [Corpus stopwords omit](#corpus-stopwords-omit)
 * [Corpus wordnet](#corpus-wordnet)
-
+* [Corpus wordnet synonyms and antonyms](#corpus-wordnet-synonyms-and_antonyms)
 
 ## Docker image
 First of all we are going to use docker to prepare the environment.
@@ -219,4 +219,45 @@ Defination of the said word:
 a conveyance for passengers or freight on a cable railway
 Examples of the word in use:
 ['they took a cable car to the top of the mountain']
+```
+
+## Corpus wordnet synonyms and antonyms
+In this section we are going to find the synonyms and antonyms of a word with wordnet
+
+```python
+from nltk.corpus import wordnet
+synonyms = []
+antonyms = []
+word = "old"
+
+for syn in wordnet.synsets(word):
+    for l in syn.lemmas():
+        synonyms.append(l.name())
+        if l.antonyms():
+            antonyms.append(l.antonyms()[0].name())
+
+print("\nWord: ")
+print(word)
+print("\nSet of synonyms of the said word:")
+print(set(synonyms))
+print("\nSet of antonyms of the said word:")
+print(set(antonyms))
+```
+
+How to execute:
+```sh
+cd /tmp
+python3 nltk_corpus_wordnet_as.py 
+```
+
+Output:
+```sh
+Word: 
+old
+
+Set of synonyms of the said word:
+{'one-time', 'erstwhile', 'old', 'onetime', 'honest-to-god', 'previous', 'older', 'honest-to-goodness', 'sure-enough', 'Old', 'quondam', 'former', 'sometime'}
+
+Set of antonyms of the said word:
+{'new', 'young'}
 ```
