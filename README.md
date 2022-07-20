@@ -9,6 +9,7 @@ This repository is about natural language toolkit focused in the nltk package co
 * [Corpus stopwords](#corpus-stopwords)
 * [Corpus stopwords removing](#corpus-stopwords-removing)
 * [Corpus stopwords omit](#corpus-stopwords-omit)
+* [Corpus wordnet](#corpus-wordnet)
 
 
 ## Docker image
@@ -165,3 +166,57 @@ Omit - 'again', 'once' and 'from':
 {'because', 'what', 'between', 'nor', 'shouldn', 'in', 'has', "that'll", 'after', 'both', "won't", 'through', 've', 'wasn', 'doing', 'had', 'won', 'those', 'about', 'do', 'have', 'don', 'him', 'they', 'up', "didn't", 'where', 'does', 'all', "you'll", 'over', 'before', 'yourselves', 'you', 'there', 'each', 'themselves', 'only', 'an', 'any', 'such', 'hasn', 'itself', 'so', 'off', 'while', "mightn't", 'herself', 'are', 'if', 'how', 'out', 'under', 'your', 'too', 'isn', 'some', 'theirs', 'mightn', 'few', 'be', 'but', 'more', 'a', 'the', "isn't", 'own', 'that', 'mustn', "hasn't", 'did', "you've", "couldn't", 'most', 'weren', 'we', 'am', 'ourselves', 'were', "should've", 'which', "wasn't", 'whom', 'aren', "you're", 'who', 'ma', 'not', "shouldn't", 'this', 'why', 'into', 'd', 'at', 'other', 'ain', 'my', 't', 'wouldn', 'when', 'now', 'yourself', 'them', 'haven', 'been', 'its', 'against', "shan't", 'didn', 'll', 'no', 'on', 'until', 'to', 'hadn', 'and', 'our', 'should', 'of', 'by', 'having', 'further', 'myself', "she's", 'is', 'here', 'y', 'm', 'then', 'will', "mustn't", "wouldn't", 'his', 'very', "don't", 'can', 'or', 'these', 'shan', 'me', 'yours', 'she', 'i', 'couldn', "weren't", "you'd", 'down', 'her', 'below', "hadn't", 'their', "it's", 'o', 'than', 'he', 'same', 's', "doesn't", 'during', "haven't", 'doesn', 're', 'being', 'just', 'it', 'for', 'with', 'above', "needn't", 'as', 'needn', 'hers', 'was', "aren't", 'ours', 'himself'}
 ```
 
+## Corpus wordnet
+In this section we are going to find the definition and examples of a given word using WordNet
+
+```python
+from nltk.corpus import wordnet 
+syns = wordnet.synsets("car")
+
+print("Syns")
+print(syns)
+
+for syn in syns:
+	print("\nDefination of the said word:")
+	print(syn.definition())
+
+	print("Examples of the word in use:")
+	print(syn.examples())
+```
+
+How to execute:
+```sh
+cd /tmp
+python3 nltk_corpus_wordnet.py 
+```
+
+Output:
+```sh
+Syns
+[Synset('car.n.01'), Synset('car.n.02'), Synset('car.n.03'), Synset('car.n.04'), Synset('cable_car.n.01')]
+
+Defination of the said word:
+a motor vehicle with four wheels; usually propelled by an internal combustion engine
+Examples of the word in use:
+['he needs a car to get to work']
+
+Defination of the said word:
+a wheeled vehicle adapted to the rails of railroad
+Examples of the word in use:
+['three cars had jumped the rails']
+
+Defination of the said word:
+the compartment that is suspended from an airship and that carries personnel and the cargo and the power plant
+Examples of the word in use:
+[]
+
+Defination of the said word:
+where passengers ride up and down
+Examples of the word in use:
+['the car was on the top floor']
+
+Defination of the said word:
+a conveyance for passengers or freight on a cable railway
+Examples of the word in use:
+['they took a cable car to the top of the mountain']
+```
