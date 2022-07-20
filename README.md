@@ -11,6 +11,7 @@ This repository is about natural language toolkit focused in the nltk package co
 * [Corpus stopwords omit](#corpus-stopwords-omit)
 * [Corpus wordnet](#corpus-wordnet)
 * [Corpus wordnet synonyms and antonyms](#corpus-wordnet-synonyms-and-antonyms)
+* [Corpus wordnet similarity](#corpus-wordnet-similarity)
 
 ## Docker image
 First of all we are going to use docker to prepare the environment.
@@ -260,4 +261,44 @@ Set of synonyms of the said word:
 
 Set of antonyms of the said word:
 {'new', 'young'}
+```
+
+## Corpus wordnet similarity
+In this section we are going to find the similarity of two words
+
+```python
+from nltk.corpus import wordnet
+
+print("\nComparing car anb automobile:")
+n1 = wordnet.synset('car.n.01')
+n2 = wordnet.synset('automobile.n.01')
+print(n1.wup_similarity(n2))
+
+print("\nComparing ship anb boat:")
+n1 = wordnet.synset('ship.n.01')
+n2 = wordnet.synset('boat.n.01')
+print(n1.wup_similarity(n2))
+
+print("\nComparing bus anb boat:")
+n1 = wordnet.synset('bus.n.01')
+n2 = wordnet.synset('boat.n.01')
+print(n1.wup_similarity(n2))
+```
+
+How to execute:
+```sh
+cd /tmp
+python3 nltk_corpus_wordnet_similarity.py 
+```
+
+Output:
+```sh
+Comparing car anb automobile:
+1.0
+
+Comparing ship anb boat:
+0.9090909090909091
+
+Comparing bus anb boat:
+0.7
 ```
