@@ -264,8 +264,9 @@ Set of antonyms of the said word:
 ```
 
 ## Corpus wordnet similarity
-In this section we are going to find the similarity of two words
+In this section we are going to find the similarity of two nouns and two verbs.
 
+Noun example:
 ```python
 from nltk.corpus import wordnet
 
@@ -288,7 +289,7 @@ print(n1.wup_similarity(n2))
 How to execute:
 ```sh
 cd /tmp
-python3 nltk_corpus_wordnet_similarity.py 
+python3 nltk_corpus_wordnet_similarity_noun.py 
 ```
 
 Output:
@@ -301,4 +302,42 @@ Comparing ship anb boat:
 
 Comparing bus anb boat:
 0.7
+```
+
+Verb example
+```python
+from nltk.corpus import wordnet
+
+print("\nComparing go anb return:")
+v1 = wordnet.synset('go.v.01')
+v2 = wordnet.synset('return.v.01')
+print(v1.wup_similarity(v2))
+
+print("\nComparing buy anb sell:")
+v1 = wordnet.synset('buy.v.01')
+v2 = wordnet.synset('sell.v.01')
+print(v1.wup_similarity(v2))
+
+print("\nComparing begin anb start:")
+v1 = wordnet.synset('begin.v.01')
+v2 = wordnet.synset('start.v.01')
+print(v1.wup_similarity(v2))
+```
+
+How to execute:
+```sh
+cd /tmp
+python3 nltk_corpus_wordnet_similarity_verb.py 
+```
+
+Output:
+```sh
+Comparing go anb return:
+0.6666666666666666
+
+Comparing buy anb sell:
+0.2857142857142857
+
+Comparing begin anb start:
+1.0
 ```
